@@ -2,25 +2,34 @@
 #define CONTACT_HPP
 #include <iostream>
 #include <string>
-#include <iomanip>
 
-using namespace std;
-class Contact{
+class Contact {
 private:
-	string	first_name;
-	string	last_name;
-	string	nick_name;
-	string	number;
-	string	secret;
+	std::string	first_name;
+	std::string	last_name;
+	std::string	nick_name;
+	std::string	number;
+	std::string	secret;
 public:
 	Contact();
 	~Contact();
-	//GETTERS					//SETTERS
-	string	get_first_name();	void	set_first_name(string newvalue);
-	string	get_last_name();	void	set_last_name(string newvalue);
-	string	get_nick_name();	void	set_nick_name(string newvalue);
-	string	get_number();		void	set_number(string newvalue);
-	string	get_secret();		void	set_secret(string newvalue);
+
+	/**
+	 * Getters
+	*/
+	std::string	get_first_name();
+	std::string	get_last_name();
+	std::string	get_nick_name();
+	std::string	get_number();
+	std::string	get_secret();
+	/**
+	 * Setters
+	*/
+	void	set_first_name(std::string newvalue);
+	void	set_last_name(std::string newvalue);
+	void	set_nick_name(std::string newvalue);
+	void	set_number(std::string newvalue);
+	void	set_secret(std::string newvalue);
 };
 
 #endif
