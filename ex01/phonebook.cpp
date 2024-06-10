@@ -65,12 +65,49 @@ void PhoneBook::add_new()
 
 void PhoneBook::print()
 {
+	if (contacts_count == 0)
+	{
+		std::cout << "Your Contact Is Still Empty." << std::endl;
+		return ;
+	}
 	std::cout << "---------------------------------------------" << std::endl;
 	std::cout << "|Index     |First Name|Last Name |Nick Name |" << std::endl;
 	std::cout << "---------------------------------------------" << std::endl;
-	for (int i = 1; i <= 8; i++)
+	for (int i = 0; i < contacts_count; i++)
 	{
-		std::cout << "| "<< i << "        |" << contacts[i-1].get_first_name(1) << "|" << contacts[i-1].get_last_name(1)  << "|" << contacts[i-1].get_nick_name(1)  << "|" << std::endl;
+		std::cout << "| "<< i +1 << "        |" << contacts[i].get_first_name(1) << "|" << contacts[i].get_last_name(1)  << "|" << contacts[i].get_nick_name(1)  << "|" << std::endl;
 		std::cout << "---------------------------------------------" << std::endl;
+	}
+	while (!std::cin.eof())
+	{
+		bool	is_valid_index = true;
+		std::string in = read_input("Enter Index Of Contact You Want : ");
+		
+		for (int i = 0; i < in.length(); i++)
+		{
+			if (!std::isdigit(in.c_str()[i]))
+			{
+				std::cout << "invalid index" << std::endl;
+				is_valid_index = false;
+				break;
+			}
+		}
+		if (in.length() == 0)
+			is_valid_index = false;
+		if (is_valid_index)
+		{
+			int index = std::stoi(in);
+			if (index <= contacts_count && index > 0)
+			{
+				std::cout << "first name : " << contacts[index -1].get_first_name(false) << std::endl;
+				std::cout << "last name : " << contacts[index -1].get_last_name(false) << std::endl;
+				std::cout << "nickname : " << contacts[index -1].get_nick_name(false) << std::endl;
+				std::cout << "phone number : " << contacts[index -1].get_number(false) << std::endl;
+				std::cout << "dark secret : " << contacts[index -1].get_secret(false) << std::endl;
+				break;
+			}else{
+				std::cout << "Bad Index" << std::endl;
+			}
+		}
 	}
 }

@@ -37,7 +37,7 @@ std::string	Contact::get_first_name(bool optimized)
 	{
 		if (first_name.length() > 10)
 		{
-			std::string ret = first_name.substr(1, 9);
+			std::string ret = first_name.substr(0, 9);
 			ret.append(".");
 			return (ret);
 		}
@@ -56,7 +56,7 @@ std::string	Contact::get_last_name(bool optimized)
 	{
 		if (last_name.length() > 10)
 		{
-			std::string ret = last_name.substr(1, 9);
+			std::string ret = last_name.substr(0, 9);
 			ret.append(".");
 			return (ret);
 		}
@@ -75,7 +75,7 @@ std::string	Contact::get_nick_name(bool optimized)
 	{
 		if (nick_name.length() > 10)
 		{
-			std::string ret = nick_name.substr(1, 9);
+			std::string ret = nick_name.substr(0, 9);
 			ret.append(".");
 			return (ret);
 		}
@@ -94,7 +94,7 @@ std::string	Contact::get_number(bool optimized)
 	{
 		if (number.length() > 10)
 		{
-			std::string ret = number.substr(1, 9);
+			std::string ret = number.substr(0, 9);
 			ret.append(".");
 			return (ret);
 		}
@@ -113,7 +113,7 @@ std::string	Contact::get_secret(bool optimized)
 	{
 		if (secret.length() > 10)
 		{
-			std::string ret = secret.substr(1, 9);
+			std::string ret = secret.substr(0, 9);
 			ret.append(".");
 			return (ret);
 		}
