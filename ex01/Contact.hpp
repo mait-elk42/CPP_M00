@@ -17,11 +17,11 @@ public:
 	/**
 	 * Getters
 	*/
-	std::string	get_first_name();
-	std::string	get_last_name();
-	std::string	get_nick_name();
-	std::string	get_number();
-	std::string	get_secret();
+	std::string	get_first_name(bool optimized);
+	std::string	get_last_name(bool optimized);
+	std::string	get_nick_name(bool optimized);
+	std::string	get_number(bool optimized);
+	std::string	get_secret(bool optimized);
 	/**
 	 * Setters
 	*/

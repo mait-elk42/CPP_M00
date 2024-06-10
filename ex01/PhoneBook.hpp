@@ -14,14 +14,18 @@
 #define PHONEBOOK_HPP
 #include "Contact.hpp"
 
+std::string	read_input(std::string msg);
+
 class PhoneBook
 {
+private:
+	Contact contacts[8];
+	int	contacts_count;
 public:
-    Contact contacts[8];
-    int     contacts_count;
-    PhoneBook();
-    ~PhoneBook();
-    void    add_contact(Contact contact);
+	PhoneBook();
+	~PhoneBook();
+	void	add_new();
+	void	print();
 };
 
 #endif

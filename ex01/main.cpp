@@ -12,25 +12,31 @@
 
 #include "PhoneBook.hpp"
 
-std::string	read_input()
+std::string	read_input(std::string msg)
 {
-    std::string usr_input;
+	std::string	usrin;
 
-    std::cout << "mait-elk@1337.phonebook [ADD,SEARCH,EXIT]: ";
-    std::getline(std::cin, usr_input);
-	return (usr_input);
+	std::cout << msg << "$> ";
+	std::getline(std::cin, usrin);
+	return (usrin);
 }
 
 int main()
 {
-    PhoneBook phonebook;
-    std::string usr_input;
+	PhoneBook phonebook;
+	std::string usr_input;
 
-    while (1)
-    {
-		usr_input = read_input();
-		std::cout << "entred : " << usr_input << std::endl;
-    }
-    
-    return (0);
+	while (!std::cin.eof() && usr_input != "EXIT")
+	{
+		usr_input = read_input("mait-elk@1337.phonebook [ADD,SEARCH,EXIT]: ");
+		if (usr_input != "")
+		{
+			if (usr_input == "ADD")
+				phonebook.add_new();
+			if (usr_input == "SEARCH")
+				phonebook.print();
+		}
+	}
+	std::cout << "\nsee you later." << std::endl;
+	return (0);
 }
