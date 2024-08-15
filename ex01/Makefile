@@ -10,6 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
+FLAGS= -Wall -Wextra -Werror -std=c++98
 SRCS= PhoneBook.cpp Contact.cpp main.cpp
 SRCS_O= $(SRCS:.cpp=.o)
 NAME= phonebook
@@ -17,10 +18,10 @@ NAME= phonebook
 all: $(NAME)
 
 $(NAME): $(SRCS_O) Contact.hpp PhoneBook.hpp
-	c++ -std=c++98 $(SRCS_O) -o $(NAME) 
+	c++ $(FLAGS) $(SRCS_O) -o $(NAME) 
 
 %.o: %.cpp Contact.hpp PhoneBook.hpp
-	c++ -c -std=c++98 $< -o $@ 
+	c++ -c $(FLAGS) $< -o $@ 
 
 clean:
 	rm -f $(SRCS_O)
