@@ -6,7 +6,7 @@
 /*   By: mait-elk <mait-elk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 19:02:54 by mait-elk          #+#    #+#             */
-/*   Updated: 2024/08/16 10:26:22 by mait-elk         ###   ########.fr       */
+/*   Updated: 2024/08/16 16:13:39 by mait-elk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,10 +85,10 @@ void	Account::makeDeposit( int deposit )
 
 bool	Account::makeWithdrawal( int withdrawal )
 {
+	_displayTimestamp();
 	if (withdrawal <= Account::_amount)
 	{
 		Account::_nbWithdrawals++;
-		_displayTimestamp();
 		std::cout << "index:" << Account::_accountIndex << ";p_amount:" << Account::_amount << ";withdrawal:" << withdrawal << ";amount:" << Account::_amount - withdrawal << ";nb_deposits:" << Account::_nbDeposits << std::endl;
 		Account::_totalAmount -= withdrawal;
 		Account::_amount -= withdrawal;
