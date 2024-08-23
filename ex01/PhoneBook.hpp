@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mait-elk <mait-elk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/23 14:50:48 by mait-elk          #+#    #+#             */
-/*   Updated: 2024/05/23 14:50:48 by mait-elk         ###   ########.fr       */
+/*   Created: 2024/08/22 16:57:45 by mait-elk          #+#    #+#             */
+/*   Updated: 2024/08/22 16:57:45 by mait-elk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ public:
 	~PhoneBook();
 	void	add_new();
 	void	print();
+	bool	is_valid_num(std::string usrin);
 };
 
 #endif

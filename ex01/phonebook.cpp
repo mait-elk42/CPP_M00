@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mait-elk <mait-elk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/23 14:50:14 by mait-elk          #+#    #+#             */
-/*   Updated: 2024/05/23 14:50:14 by mait-elk         ###   ########.fr       */
+/*   Created: 2024/08/22 16:56:40 by mait-elk          #+#    #+#             */
+/*   Updated: 2024/08/22 16:56:40 by mait-elk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "PhoneBook.hpp"
 
@@ -22,42 +23,74 @@ PhoneBook::~PhoneBook()
 
 }
 
+bool	PhoneBook::is_valid_num(std::string usrin)
+{
+	for (size_t i = 0; i < usrin.length(); i++)
+	{
+		if (!std::isdigit(usrin[i]))
+			return (false);
+	}
+	return (true);
+}
+
 void PhoneBook::add_new()
 {
 	std::string	usrin;
 	Contact		contact;
 
 	std::cout << "\nEnter Informations : " << std::endl;
-	if ((usrin = read_input("\tFirst Name > ")) == "")
+	while (!(std::cin.eof()))
 	{
-		std::cout << "\033[31mError: Empty Field. [ First Name ]\033[0m" << std::endl;
-		return ;
+		if ((usrin = read_input("\033[2K\tFirst Name >")) != "")
+		{
+			std::cout << "\x1b[A\033[32mOK   \033[0m" << std::endl;
+			break;
+		}
+		std::cout << "\x1b[A" << std::flush;
 	}
 	contact.set_first_name(usrin);
-	if ((usrin = read_input("\tLast Name > ")) == "")
+	while (!(std::cin.eof()))
 	{
-		std::cout << "\033[31mError: Empty Field. [ Last Name ]\033[0m" << std::endl;
-		return ;
+		if ((usrin = read_input("\033[2K\tLast Name >")) != "")
+		{
+			std::cout << "\x1b[A\033[32mOK   \033[0m" << std::endl;
+			break;
+		}
+		std::cout << "\x1b[A" << std::flush;
 	}
 	contact.set_last_name(usrin);
-	if ((usrin = read_input("\tNickName > ")) == "")
+	while (!(std::cin.eof()))
 	{
-		std::cout << "\033[31mError: Empty Field. [ NickName > ]\033[0m" << std::endl;
-		return ;
+		if ((usrin = read_input("\033[2K\tNickName >")) != "")
+		{
+			std::cout << "\x1b[A\033[32mOK   \033[0m" << std::endl;
+			break;
+		}
+		std::cout << "\x1b[A" << std::flush;
 	}
 	contact.set_nick_name(usrin);
-	if ((usrin = read_input("\tPhone Number > ")) == "")
+	while (!(std::cin.eof()))
 	{
-		std::cout << "\033[31mError: Empty Field. [ Phone Number ]\033[0m" << std::endl;
-		return ;
+		if ((usrin = read_input("\033[2K\tPhone Number >")) != "" && is_valid_num(usrin))
+		{
+			std::cout << "\x1b[A\033[32mOK   \033[0m" << std::endl;
+			break;
+		}
+		std::cout << "\x1b[A" << std::flush;
 	}
 	contact.set_number(usrin);
-	if ((usrin = read_input("\tDarkest Secret > ")) == "")
+	while (!(std::cin.eof()))
 	{
-		std::cout << "\033[31mError: Empty Field. [ Darkest Secret ]\033[0m" << std::endl;
-		return ;
+		if ((usrin = read_input("\033[2K\tDarkest Secret >")) != "")
+		{
+			std::cout << "\x1b[A\033[32mOK   \033[0m" << std::endl;
+			break;
+		}
+		std::cout << "\x1b[A" << std::flush;
 	}
 	contact.set_secret(usrin);
+	if (std::cin.eof())
+		return ;
 	std::cout << "New Contact Added Successfully." << std::endl;
 	contacts[contacts_count % 8] = contact;
 	contacts_count++;

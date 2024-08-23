@@ -6,7 +6,7 @@
 /*   By: mait-elk <mait-elk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 19:02:54 by mait-elk          #+#    #+#             */
-/*   Updated: 2024/08/16 16:13:39 by mait-elk         ###   ########.fr       */
+/*   Updated: 2024/08/23 15:38:14 by mait-elk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	Account::_totalNbWithdrawals = 0;
 
 Account::Account()
 {
-	// std::cout << "hello" << std::endl;
+	
 }
 
 Account::Account( int initial_deposit )
@@ -58,9 +58,11 @@ void	Account::displayAccountsInfos( void )
 void	Account::_displayTimestamp( void )
 {
 	time_t	now;
+	tm		*time_info;
 
 	now = time(NULL);
-	std::cout << std::put_time(localtime(&now), "[%Y%m%d_%H%M%S] ");
+	time_info = localtime(&now);
+	std::cout << std::put_time(time_info, "[%Y%m%d_%H%M%S] ");
 }
 
 int	Account::getNbDeposits( void )
