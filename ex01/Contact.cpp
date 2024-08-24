@@ -41,12 +41,6 @@ std::string	Contact::get_first_name(bool optimized)
 			ret.append(".");
 			return (ret);
 		}
-		if (first_name.length() < 10)
-		{
-			int spaces = 10 - first_name.length();
-			while (spaces--)
-				first_name.append(" ");
-		}
 	}
 	return first_name;
 }
@@ -59,12 +53,6 @@ std::string	Contact::get_last_name(bool optimized)
 			std::string ret = last_name.substr(0, 9);
 			ret.append(".");
 			return (ret);
-		}
-		if (last_name.length() < 10)
-		{
-			int spaces = 10 - last_name.length();
-			while (spaces--)
-				last_name.append(" ");
 		}
 	}
 	return last_name;
@@ -79,12 +67,6 @@ std::string	Contact::get_nick_name(bool optimized)
 			ret.append(".");
 			return (ret);
 		}
-		if (nick_name.length() < 10)
-		{
-			int spaces = 10 - nick_name.length();
-			while (spaces--)
-				nick_name.append(" ");
-		}
 	}
 	return nick_name;
 }
@@ -98,12 +80,6 @@ std::string	Contact::get_number(bool optimized)
 			ret.append(".");
 			return (ret);
 		}
-		if (number.length() < 10)
-		{
-			int spaces = 10 - number.length();
-			while (spaces--)
-				number.append(" ");
-		}
 	}
 	return number;
 }
@@ -116,12 +92,6 @@ std::string	Contact::get_secret(bool optimized)
 			std::string ret = secret.substr(0, 9);
 			ret.append(".");
 			return (ret);
-		}
-		if (secret.length() < 10)
-		{
-			int spaces = 10 - secret.length();
-			while (spaces--)
-				secret.append(" ");
 		}
 	}
 	return secret;

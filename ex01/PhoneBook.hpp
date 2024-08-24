@@ -28,6 +28,9 @@ public:
 	void	add_new();
 	void	print();
 	bool	is_valid_num(std::string usrin);
+	bool	is_valid_name(std::string usrin);
+	bool	is_valid_nname(std::string usrin);
+	bool	is_valid_ds(std::string usrin);
 };
 
 #endif

@@ -28,6 +28,45 @@ bool	PhoneBook::is_valid_num(std::string usrin)
 	for (size_t i = 0; i < usrin.length(); i++)
 	{
 		if (!std::isdigit(usrin[i]))
+		{
+			if (!(i == 0 && usrin[i] == '+'))
+				return (false);
+		}
+	}
+	return (true);
+}
+
+bool	PhoneBook::is_valid_name(std::string usrin)
+{
+	bool has_alpha = false;
+	for (size_t i = 0; i < usrin.length(); i++)
+	{
+		if (std::isalpha(usrin[i]) && has_alpha == false)
+			has_alpha = true;
+		if (!std::isalpha(usrin[i]) && usrin[i] != ' ')
+			return (false);
+	}
+	return (has_alpha);
+}
+
+bool	PhoneBook::is_valid_nname(std::string usrin)
+{
+	bool has_alpha = false;
+	for (size_t i = 0; i < usrin.length(); i++)
+	{
+		if (std::isalpha(usrin[i]) && has_alpha == false)
+			has_alpha = true;
+		if (!std::isalpha(usrin[i]) && !std::isdigit(usrin[i]) && usrin[i] != '-' && usrin[i] != '_')
+			return (false);
+	}
+	return (has_alpha);
+}
+
+bool	PhoneBook::is_valid_ds(std::string usrin)
+{
+	for (size_t i = 0; i < usrin.length(); i++)
+	{
+		if (!std::isalpha(usrin[i]) && !std::isdigit(usrin[i]) && usrin[i] != ' ' && usrin[i] != ',' && usrin[i] != '.')
 			return (false);
 	}
 	return (true);
@@ -41,7 +80,7 @@ void PhoneBook::add_new()
 	std::cout << "\nEnter Informations : " << std::endl;
 	while (!(std::cin.eof()))
 	{
-		if ((usrin = read_input("\033[2K\tFirst Name >")) != "")
+		if ((usrin = read_input("\033[2K\tFirst Name >")) != "" && is_valid_name(usrin))
 		{
 			std::cout << "\x1b[A\033[32mOK   \033[0m" << std::endl;
 			break;
@@ -51,7 +90,7 @@ void PhoneBook::add_new()
 	contact.set_first_name(usrin);
 	while (!(std::cin.eof()))
 	{
-		if ((usrin = read_input("\033[2K\tLast Name >")) != "")
+		if ((usrin = read_input("\033[2K\tLast Name >")) != "" && is_valid_name(usrin))
 		{
 			std::cout << "\x1b[A\033[32mOK   \033[0m" << std::endl;
 			break;
@@ -61,7 +100,7 @@ void PhoneBook::add_new()
 	contact.set_last_name(usrin);
 	while (!(std::cin.eof()))
 	{
-		if ((usrin = read_input("\033[2K\tNickName >")) != "")
+		if ((usrin = read_input("\033[2K\tNickName >")) != "" && is_valid_nname(usrin))
 		{
 			std::cout << "\x1b[A\033[32mOK   \033[0m" << std::endl;
 			break;
@@ -81,7 +120,7 @@ void PhoneBook::add_new()
 	contact.set_number(usrin);
 	while (!(std::cin.eof()))
 	{
-		if ((usrin = read_input("\033[2K\tDarkest Secret >")) != "")
+		if ((usrin = read_input("\033[2K\tDarkest Secret >")) != "" && is_valid_ds(usrin))
 		{
 			std::cout << "\x1b[A\033[32mOK   \033[0m" << std::endl;
 			break;
@@ -104,11 +143,11 @@ void PhoneBook::print()
 		return ;
 	}
 	std::cout << "---------------------------------------------" << std::endl;
-	std::cout << "|Index     |First Name|Last Name |Nick Name |" << std::endl;
+	std::cout << "|     Index|First Name| Last Name| Nick Name|" << std::endl;
 	std::cout << "---------------------------------------------" << std::endl;
 	for (int i = 0; i < ((contacts_count <= 8) ? contacts_count : 8); i++)
 	{
-		std::cout << "| "<< i + 1 << "        |" << contacts[i].get_first_name(1) << "|" << contacts[i].get_last_name(1)  << "|" << contacts[i].get_nick_name(1)  << "|" << std::endl;
+		std::cout << "|"<< std::setw(10) << i + 1 << "|" << std::setw(10) << contacts[i].get_first_name(1) << "|" << std::setw(10) << contacts[i].get_last_name(1)  << "|" << std::setw(10) << contacts[i].get_nick_name(1)  << "|" << std::endl;
 		std::cout << "---------------------------------------------" << std::endl;
 	}
 	while (!std::cin.eof())

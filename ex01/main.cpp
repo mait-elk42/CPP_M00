@@ -49,16 +49,3 @@ int main()
 	std::cout << "\nsee you later." << std::endl;
 	return (0);
 }
-
-
-// int main() {
-//     int total = 100;
-
-//     for (int i = 0; i <= total; ++i) {
-//         std::cout << "\rSaving: " << i << "%" << std::flush;
-// 		std::__libcpp_thread_sleep_for(std::__1::chrono::nanoseconds(100000000));
-//     }
-
-//     std::cout << std::endl; // Move to the next line after the loop is done
-//     return 0;
-// }
