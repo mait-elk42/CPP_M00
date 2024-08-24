@@ -6,7 +6,7 @@
 /*   By: mait-elk <mait-elk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 19:02:54 by mait-elk          #+#    #+#             */
-/*   Updated: 2024/08/23 15:38:14 by mait-elk         ###   ########.fr       */
+/*   Updated: 2024/08/24 15:21:01 by mait-elk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,43 @@ void	Account::displayAccountsInfos( void )
 
 void	Account::_displayTimestamp( void )
 {
-	time_t	now;
-	tm		*time_info;
+	time_t			now;
+	tm				*time_info;
+	int				y,m,d, hour,min,sec;
 
 	now = time(NULL);
 	time_info = localtime(&now);
-	std::cout << std::put_time(time_info, "[%Y%m%d_%H%M%S] ");
+	y = time_info->tm_year;
+	m = time_info->tm_mon;
+	d = time_info->tm_mday;
+	hour = time_info->tm_hour % 12;
+	min = time_info->tm_min;
+	sec = time_info->tm_sec;
+
+	std::cout << "[" << std::flush;
+	std::cout << std::to_string(y + 1900);
+	if (m < 10)
+		std::cout << "0" << m<< std::flush;
+	else
+		std::cout << m;
+	if (d < 10)
+		std::cout << "0" << d<< std::flush;
+	else
+		std::cout << d;
+	std::cout << "_" << std::flush;
+	if (hour < 10)
+		std::cout << "0" << hour<< std::flush;
+	else
+		std::cout << hour;
+	if (min < 10)
+		std::cout << "0" << min<< std::flush;
+	else
+		std::cout << min;
+	if (sec < 10)
+		std::cout << "0" << sec<< std::flush;
+	else
+		std::cout << sec;
+	std::cout << "] " << std::flush;
 }
 
 int	Account::getNbDeposits( void )
