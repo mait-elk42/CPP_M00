@@ -6,7 +6,7 @@
 /*   By: mait-elk <mait-elk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 09:05:31 by mait-elk          #+#    #+#             */
-/*   Updated: 2024/08/25 10:27:59 by mait-elk         ###   ########.fr       */
+/*   Updated: 2024/08/25 14:58:40 by mait-elk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ void	Harl::complain(std::string level)
 				break;
 				case 3:
 					std::cout << "\n[ ERROR ]" << std::endl;
+				default:
+					break;
 				break;
 			}
 			(this->*_fncs[i])();

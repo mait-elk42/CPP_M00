@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 COMPILER= c++
-CFLAGS= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
+CFLAGS= -Wall -Wextra -Werror -std=c++98
 SRCS= main.cpp Harl.cpp
 SRCS_O= $(SRCS:.cpp=.o)
 NAME= harlFilter

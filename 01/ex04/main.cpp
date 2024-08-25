@@ -6,7 +6,7 @@
 /*   By: mait-elk <mait-elk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 11:01:12 by mait-elk          #+#    #+#             */
-/*   Updated: 2024/08/25 10:24:23 by mait-elk         ###   ########.fr       */
+/*   Updated: 2024/08/25 14:21:25 by mait-elk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main(int ac, char **av)
 
 		if (!infile.is_open())
 		{
-			std::cout << "Cannot Read From File : [" << av[1] << "]" << std::endl;
+			std::cerr << "Cannot Read From File : [" << av[1] << "]" << std::endl;
 			return (1);
 		}
 		std::string from = av[2];
@@ -32,6 +32,8 @@ int main(int ac, char **av)
 		while (!infile.eof())
 		{
 			std::getline(infile, line);
+			if (!infile.eof())
+				line.append("\n");
 			std::string ltoadd = line;
 			int	start = line.find(from);
 			int	end = start + from.length();
@@ -49,17 +51,18 @@ int main(int ac, char **av)
 			}
 			// std::cout << "to_add : " << ltoadd << std::endl;
 			new_content.append(ltoadd);
-			if (!infile.eof())
-				new_content.append("\n");
+			// if (!infile.eof())
+			// 	new_content.append("\n");
 		}
 		// std::cout << new_content << std::endl;
 		infile.close();
-		std::ofstream out(av[1] + ".replace");
+		std::ofstream out(std::string(av[1]) + ".replace");
 		if (!out.is_open())
 		{
-			std::cout << "Cannot Write In File : [" << av[1] << "]" << std::endl;
+			std::cerr << "Cannot Write In File : [" << av[1] << "]" << std::endl;
 			return (1);
 		}
 		out << new_content << std::flush;
+		out.close();
 	}
 }

@@ -5,16 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mait-elk <mait-elk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/08/24 11:39:18 by mait-elk          #+#    #+#              #
-#    Updated: 2024/08/25 12:15:04 by mait-elk         ###   ########.fr        #
+#    Created: 2024/08/25 10:32:35 by mait-elk          #+#    #+#              #
+#    Updated: 2024/08/25 10:34:47 by mait-elk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 COMPILER= c++
 CFLAGS= -Wall -Wextra -Werror -std=c++98
-SRCS= main.cpp
+SRCS= main.cpp Fixed.cpp
 SRCS_O= $(SRCS:.cpp=.o)
-NAME= replacer_tool
+NAME= first_orthodox_form
 
 all: $(NAME)
 
