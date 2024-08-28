@@ -6,13 +6,15 @@
 /*   By: mait-elk <mait-elk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 19:02:54 by mait-elk          #+#    #+#             */
-/*   Updated: 2024/08/24 15:21:01 by mait-elk         ###   ########.fr       */
+/*   Updated: 2024/08/28 08:35:56 by mait-elk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <iostream>
 #include <iomanip>
+#include <sstream>
+#include <string>
 
 int	Account::_nbAccounts = 0;
 int	Account::_totalAmount = 0;
@@ -71,7 +73,7 @@ void	Account::_displayTimestamp( void )
 	sec = time_info->tm_sec;
 
 	std::cout << "[" << std::flush;
-	std::cout << std::to_string(y + 1900);
+	std::cout << y + 1900;
 	if (m < 10)
 		std::cout << "0" << m<< std::flush;
 	else
