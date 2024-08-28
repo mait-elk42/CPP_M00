@@ -172,7 +172,7 @@ void PhoneBook::print()
 		if (is_valid_index)
 		{
 			int max_c = ((contacts_count <= 8) ? contacts_count : 8);
-			int index = std::stoi(in);
+			int index = std::atoi(in.c_str());
 			if (index <= max_c && index > 0)
 			{
 				std::cout << "first name : " << contacts[index -1].get_first_name(false) << std::endl;
