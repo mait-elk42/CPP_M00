@@ -6,7 +6,7 @@
 /*   By: mait-elk <mait-elk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 11:01:12 by mait-elk          #+#    #+#             */
-/*   Updated: 2024/08/25 14:21:25 by mait-elk         ###   ########.fr       */
+/*   Updated: 2024/08/30 09:56:29 by mait-elk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,52 +17,49 @@ int main(int ac, char **av)
 {
 	if (ac == 4)
 	{
-		std::string new_content;
+		std::string old_content = "";
 		std::ifstream infile(av[1]);
-
 		if (!infile.is_open())
 		{
 			std::cerr << "Cannot Read From File : [" << av[1] << "]" << std::endl;
 			return (1);
 		}
+		while ( !infile.eof() )
+		{
+			std::string s;
+			std::getline(infile, s);
+			old_content.append(s);
+			if (!infile.eof())
+				old_content.append("\n");
+		}
+		infile.close();
+
+		std::ofstream outfile(std::string(av[1]) + ".replace");
 		std::string from = av[2];
 		std::string to = av[3];
-
-		std::string line;
-		while (!infile.eof())
+		int i = 0;
+		while (old_content[i] != '\0')
 		{
-			std::getline(infile, line);
-			if (!infile.eof())
-				line.append("\n");
-			std::string ltoadd = line;
-			int	start = line.find(from);
-			int	end = start + from.length();
-			// std::cout << "start:" << start << " end:" << end << std::endl;
-			if (start > -1)
+			if (old_content[i] == from[0])
 			{
-				ltoadd = "";
-				std::string chunk1 = line.substr(0, start);
-				// std::cout << "chunk 1 : " << chunk1 << std::endl;
-				std::string chunk2 = line.substr(end, line.length());
-				// std::cout << "chunk 2 : " << chunk2 << std::endl;
-				ltoadd.append(chunk1);
-				ltoadd.append(to);
-				ltoadd.append(chunk2);
+				size_t j = 0;
+				while (old_content[i + j] != '\0' && old_content[i + j] == from[j])
+					j++;
+				if (j == from.length())
+				{
+					outfile << to << std::flush;
+					i += j;
+				}
+				else {
+					outfile << old_content[i] << std::flush;
+					i++;
+				}
 			}
-			// std::cout << "to_add : " << ltoadd << std::endl;
-			new_content.append(ltoadd);
-			// if (!infile.eof())
-			// 	new_content.append("\n");
+			else {
+				outfile << old_content[i] << std::flush;
+				i++;
+			}
 		}
-		// std::cout << new_content << std::endl;
-		infile.close();
-		std::ofstream out(std::string(av[1]) + ".replace");
-		if (!out.is_open())
-		{
-			std::cerr << "Cannot Write In File : [" << av[1] << "]" << std::endl;
-			return (1);
-		}
-		out << new_content << std::flush;
-		out.close();
+		outfile.close();
 	}
 }

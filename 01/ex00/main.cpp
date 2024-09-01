@@ -6,7 +6,7 @@
 /*   By: mait-elk <mait-elk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 11:01:12 by mait-elk          #+#    #+#             */
-/*   Updated: 2024/08/24 11:27:25 by mait-elk         ###   ########.fr       */
+/*   Updated: 2024/08/28 17:06:14 by mait-elk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,11 @@
 
 int main()
 {
-	randomChump("Aissam");
+	Zombie *zombie = newZombie("KING");
+	zombie->announce();
+	randomChump("ZOMBIE01");
+	randomChump("ZOMBIE02");
+	randomChump("ZOMBIE03");
+	randomChump("ZOMBIE04");
+	delete zombie;
 }

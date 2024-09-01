@@ -6,7 +6,7 @@
 /*   By: mait-elk <mait-elk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 09:05:31 by mait-elk          #+#    #+#             */
-/*   Updated: 2024/08/25 14:58:40 by mait-elk         ###   ########.fr       */
+/*   Updated: 2024/08/28 17:54:53 by mait-elk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	Harl::complain(std::string level)
 	{
 		if (level == _levels[i] || save == true)
 		{
-			// std::cout << "\n[ " << _levels[i] << " ]" << std::endl; <- ! ? hakaaak bach nkhdem b switch :)
 			switch (i)
 			{
 				case 0:
