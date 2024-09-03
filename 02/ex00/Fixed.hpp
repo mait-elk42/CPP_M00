@@ -6,7 +6,7 @@
 /*   By: mait-elk <mait-elk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 10:42:26 by mait-elk          #+#    #+#             */
-/*   Updated: 2024/08/25 12:27:48 by mait-elk         ###   ########.fr       */
+/*   Updated: 2024/09/02 11:28:58 by mait-elk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Fixed
 					Fixed();
 					~Fixed();
 					Fixed(Fixed &copy);
-		Fixed& 		operator=(Fixed &value);
-		int			getRawBits() const;
+		Fixed& 		operator=(const Fixed &tocopy);
+		int			getRawBits( void ) const;
 		void		setRawBits(int const raw);
 };

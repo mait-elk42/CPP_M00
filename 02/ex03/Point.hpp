@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mait-elk <mait-elk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/25 10:49:52 by mait-elk          #+#    #+#             */
-/*   Updated: 2024/09/02 11:02:30 by mait-elk         ###   ########.fr       */
+/*   Created: 2024/09/02 17:03:30 by mait-elk          #+#    #+#             */
+/*   Updated: 2024/09/03 07:43:30 by mait-elk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #include "Fixed.hpp"
-#include <iostream>
-int main( void ) {
-	Fixed a;
-	Fixed b( a );
-	Fixed c;
 
-	c = b;
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
-	
-	return 0;
-}
+class Point {
+private:
+	Fixed	const x;
+	Fixed	const y;
+public:
+	Point();
+	Point(const Point &tocopy);
+	Point(const Fixed _x, const Fixed _y);
+	~Point();
+
+	Point&	operator=(const Point &tocopy);
+
+	float	readx() const;
+	float	ready() const;
+};
+
+bool bsp(Point const a, Point const b, Point const c, Point const point);

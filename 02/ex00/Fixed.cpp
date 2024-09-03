@@ -6,7 +6,7 @@
 /*   By: mait-elk <mait-elk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 10:53:45 by mait-elk          #+#    #+#             */
-/*   Updated: 2024/08/25 13:35:14 by mait-elk         ###   ########.fr       */
+/*   Updated: 2024/09/02 11:17:55 by mait-elk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@ const int	Fixed::fractional_bits = 8;
 
 Fixed::Fixed()
 {
-	(void)fractional_bits;
+	value = 0;
 	std::cout << "Default constructor called" << std::endl;
-	this->value = 0;
 }
 Fixed::~Fixed()
 {
@@ -27,18 +26,17 @@ Fixed::~Fixed()
 Fixed::Fixed(Fixed &copy)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	this->value = copy.getRawBits();
+	if (&copy != this)
+		*this = copy;
 }
-Fixed& 		Fixed::operator=(Fixed &value)
+Fixed& 		Fixed::operator=(const Fixed &tocopy)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (&value != this)
-	{
-		this->value = getRawBits();
-	}
+	if (&tocopy != this)
+		this->value = tocopy.getRawBits();
 	return *this;
 }
-int			Fixed::getRawBits() const
+int			Fixed::getRawBits( void ) const
 {
 	std::cout << "getRawBits member function called" << std::endl;
 	return (this->value);

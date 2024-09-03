@@ -6,21 +6,20 @@
 /*   By: mait-elk <mait-elk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 10:49:52 by mait-elk          #+#    #+#             */
-/*   Updated: 2024/09/02 11:02:30 by mait-elk         ###   ########.fr       */
+/*   Updated: 2024/09/03 13:23:13 by mait-elk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
-#include <iostream>
-int main( void ) {
-	Fixed a;
-	Fixed b( a );
-	Fixed c;
+#include "Point.hpp"
 
-	c = b;
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
+int main( void ) {
+	Point a = Point(-5, -10);
+	Point b = Point(30, 20);
+	Point c = Point(50, 5);
+	a = b;
 	
+	Point ptsrch = Point(30, 15);
+	
+	std::cout << bsp(a,b,c, ptsrch) << std::endl;
 	return 0;
 }

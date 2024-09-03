@@ -6,13 +6,13 @@
 #    By: mait-elk <mait-elk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/25 10:32:35 by mait-elk          #+#    #+#              #
-#    Updated: 2024/09/02 11:56:40 by mait-elk         ###   ########.fr        #
+#    Updated: 2024/09/03 09:03:20 by mait-elk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 COMPILER= c++
 CFLAGS= -Wall -Wextra -Werror -std=c++98
-SRCS= main.cpp Fixed.cpp
+SRCS= main.cpp Fixed.cpp Point.cpp bsp.cpp
 SRCS_O= $(SRCS:.cpp=.o)
 NAME= _
 
