@@ -6,7 +6,7 @@
 /*   By: mait-elk <mait-elk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 10:53:45 by mait-elk          #+#    #+#             */
-/*   Updated: 2024/09/02 16:42:38 by mait-elk         ###   ########.fr       */
+/*   Updated: 2024/09/07 08:43:48 by mait-elk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ Fixed::Fixed(const int value) {
 Fixed::Fixed(const float value) {
 	this->value = roundf(value * (1 << fractional_bits));
 }
+
 Fixed::Fixed(const Fixed &copy) {
 	if (&copy != this)
 		*this = copy;

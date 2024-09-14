@@ -6,7 +6,7 @@
 /*   By: mait-elk <mait-elk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 10:53:45 by mait-elk          #+#    #+#             */
-/*   Updated: 2024/09/02 11:58:08 by mait-elk         ###   ########.fr       */
+/*   Updated: 2024/09/08 09:23:58 by mait-elk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,5 @@ int	Fixed::toInt( void ) const {
 }
 
 std::ostream    &operator<<(std::ostream &out, const Fixed &obj) {
-	return (out << ">> " << obj.toFloat() << std::flush);
+	return (out << "is " << obj.toFloat() << std::flush);
 }

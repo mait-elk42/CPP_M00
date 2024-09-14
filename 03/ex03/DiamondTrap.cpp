@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mait-elk <mait-elk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/25 10:49:52 by mait-elk          #+#    #+#             */
-/*   Updated: 2024/09/08 09:04:11 by mait-elk         ###   ########.fr       */
+/*   Created: 2024/09/08 14:29:26 by mait-elk          #+#    #+#             */
+/*   Updated: 2024/09/10 18:03:48 by mait-elk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
-#include <iostream>
-int main( void ) {
-	Fixed a;
-	Fixed b( a );
-	Fixed c;
+#include "DiamondTrap.hpp"
 
-	c = b;
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
+DiamondTrap::DiamondTrap() {
 
-	return 0;
+}
+DiamondTrap::~DiamondTrap() {
+
+}
+DiamondTrap::DiamondTrap(const DiamondTrap &copy) {
+	if (&copy != this)
+		*this = copy;
+}
+DiamondTrap&	DiamondTrap::operator=(const DiamondTrap &copy) {
+	if (&copy != this)
+		;
+	return *this;
 }
